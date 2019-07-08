@@ -1,5 +1,24 @@
 'use strict';
 
 function createUpdatedCollection(collectionA, objectB) {
-  return '实现练习要求，并改写该行代码。';
+  var collectionB = [];
+  for(let i = 0; i < collectionA.length;) {
+    let count = 0;
+    for(let j = 0; j < collectionA.length; j++) {
+      if(collectionA[i] == collectionA[j]) {
+        count++;
+      }
+    }
+    let map = {};
+    map['key'] = collectionA[i];
+    map['count'] = count;
+    collectionB.push(map);
+    i += count;
+  }
+  for(let i = 0; i < collectionB.length; i++) {
+    if(objectB['value'].indexOf(collectionB[i]['key']) > -1){
+        collectionB[i]['count'] = collectionB[i]['count'] - parseInt(collectionB[i]['count']/3);
+    }
+  }
+  return collectionB;
 }
