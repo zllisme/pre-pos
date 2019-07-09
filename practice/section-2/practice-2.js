@@ -7,8 +7,16 @@ function countSameElements(collection) {
     for(let j = 0; j < collection.length; j++) {
 
       if(collection[i] == collection[j]) {
-        count++;
+        if(collection[i].indexOf('-') > -1){
+          count += parseInt(collection[i].split('-')[1]);
+        }else{
+          count++;
+        }
+        
       }
+    }
+    if(collection[i].indexOf('-') > -1){
+      collection[i] = collection[i].split('-')[0];
     }
     let map = {};
     map['key'] = collection[i];
